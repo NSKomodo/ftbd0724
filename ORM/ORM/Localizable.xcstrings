@@ -18,6 +18,23 @@
         }
       }
     },
+    "WorkoutDataError.invalidRow" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Workout data row is invalid. Make sure each row is formatted as comma separated string consisting of: \"date,exercise, repetitions,weight\""
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La fila de datos de este entrenamiento no es válida. Asegúrese de que cada fila tenga el siguiente formato: \"fecha,ejercicio,repeticiones,peso\""
+          }
+        }
+      }
+    },
     "WorkoutDataError.unexpected" : {
       "extractionState" : "manual",
       "localizations" : {

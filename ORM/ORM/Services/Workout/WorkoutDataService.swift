@@ -34,5 +34,39 @@ class WorkoutDataService {
             }
         }
     }
+    
+    /// Parses a workout row from the historical data file.
+    /// - Parameters:
+    ///   - row: The workout row to be parsed.
+    /// - Returns: A serialized `Workout` model for the row.
+    func parseRow(row: String) throws -> Workout? {
+        let fields = row.split(separator: ",")
+        if fields.count != 4 {
+            throw WorkoutDataError.invalidRow
+        }
+        
+        // Extract fields from row and covert them from String.Subsequence to String
+        let dateField = String(fields[0])
+        let exerciseField = String(fields[1])
+        let repsField = String(fields[2])
+        let weightField = String(fields[3])
+        
+        // Attempt to parse date field
+        guard let date = DateHelper.parseWorkoutDate(from: dateField) else {
+            throw WorkoutDataError.invalidDateFormat
+        }
+        
+        // Attempt to cast fields to expected types
+        guard let reps = Int(repsField),
+              let weight = Double(weightField) else {
+            
+            throw WorkoutDataError.invalidRow
+        }
+        
+        return Workout(date: date,
+                       exercise: exerciseField,
+                       repetitions: reps,
+                       weight: weight)
+    }
 }
 

@@ -18,6 +18,8 @@
 		CFA7BD822C3B2E8200CD3FA1 /* WorkoutDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BD812C3B2E8200CD3FA1 /* WorkoutDataServiceTests.swift */; };
 		CFA7BD852C3B2FFC00CD3FA1 /* WorkoutDataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BD842C3B2FFC00CD3FA1 /* WorkoutDataError.swift */; };
 		CFA7BD8A2C3B3D7800CD3FA1 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = CFA7BD892C3B3D7800CD3FA1 /* Localizable.xcstrings */; };
+		CFA7BD8E2C3B48A600CD3FA1 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BD8D2C3B48A600CD3FA1 /* DateHelper.swift */; };
+		CFA7BD902C3B4C8600CD3FA1 /* DateHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BD8F2C3B4C8600CD3FA1 /* DateHelperTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		CFA7BD812C3B2E8200CD3FA1 /* WorkoutDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDataServiceTests.swift; sourceTree = "<group>"; };
 		CFA7BD842C3B2FFC00CD3FA1 /* WorkoutDataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDataError.swift; sourceTree = "<group>"; };
 		CFA7BD892C3B3D7800CD3FA1 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		CFA7BD8D2C3B48A600CD3FA1 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		CFA7BD8F2C3B4C8600CD3FA1 /* DateHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelperTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 				CFA7BD7A2C3B26AF00CD3FA1 /* View */,
 				CFA7BD7C2C3B278200CD3FA1 /* Model */,
 				CFA7BD7B2C3B26FC00CD3FA1 /* Services */,
+				CFA7BD8B2C3B484700CD3FA1 /* Utilities */,
 				CFA7BD522C3B24D600CD3FA1 /* Assets.xcassets */,
 				CFA7BD892C3B3D7800CD3FA1 /* Localizable.xcstrings */,
 				CFA7BD542C3B24D600CD3FA1 /* Preview Content */,
@@ -126,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				CFA7BD812C3B2E8200CD3FA1 /* WorkoutDataServiceTests.swift */,
+				CFA7BD8F2C3B4C8600CD3FA1 /* DateHelperTests.swift */,
 			);
 			path = ORMTests;
 			sourceTree = "<group>";
@@ -193,6 +199,14 @@
 				CFA7BD7F2C3B2B5F00CD3FA1 /* WorkoutDataService.swift */,
 			);
 			path = Workout;
+			sourceTree = "<group>";
+		};
+		CFA7BD8B2C3B484700CD3FA1 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				CFA7BD8D2C3B48A600CD3FA1 /* DateHelper.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,6 +344,7 @@
 				CFA7BD512C3B24D600CD3FA1 /* ContentView.swift in Sources */,
 				CFA7BD802C3B2B5F00CD3FA1 /* WorkoutDataService.swift in Sources */,
 				CFA7BD852C3B2FFC00CD3FA1 /* WorkoutDataError.swift in Sources */,
+				CFA7BD8E2C3B48A600CD3FA1 /* DateHelper.swift in Sources */,
 				CFA7BD4F2C3B24D600CD3FA1 /* ORMApp.swift in Sources */,
 				CFA7BD7E2C3B27AB00CD3FA1 /* Workout.swift in Sources */,
 			);
@@ -340,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFA7BD822C3B2E8200CD3FA1 /* WorkoutDataServiceTests.swift in Sources */,
+				CFA7BD902C3B4C8600CD3FA1 /* DateHelperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

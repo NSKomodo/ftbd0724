@@ -8,7 +8,7 @@
 import Foundation
 
 /// Represents a workout row inside the historical data file.
-struct Workout: Codable {
+struct Workout: Equatable, Codable {
     /// The date the workout was completed.
     let date: Date
     /// The name of exercise.
