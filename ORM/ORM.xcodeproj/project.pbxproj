@@ -11,7 +11,6 @@
 		CFA7BD512C3B24D600CD3FA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BD502C3B24D600CD3FA1 /* ContentView.swift */; };
 		CFA7BD532C3B24D600CD3FA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFA7BD522C3B24D600CD3FA1 /* Assets.xcassets */; };
 		CFA7BD562C3B24D600CD3FA1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFA7BD552C3B24D600CD3FA1 /* Preview Assets.xcassets */; };
-		CFA7BD602C3B24D700CD3FA1 /* ORMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BD5F2C3B24D700CD3FA1 /* ORMTests.swift */; };
 		CFA7BD6A2C3B24D700CD3FA1 /* ORMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BD692C3B24D700CD3FA1 /* ORMUITests.swift */; };
 		CFA7BD6C2C3B24D700CD3FA1 /* ORMUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BD6B2C3B24D700CD3FA1 /* ORMUITestsLaunchTests.swift */; };
 		CFA7BD7E2C3B27AB00CD3FA1 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BD7D2C3B27AB00CD3FA1 /* Workout.swift */; };
@@ -45,7 +44,6 @@
 		CFA7BD522C3B24D600CD3FA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFA7BD552C3B24D600CD3FA1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CFA7BD5B2C3B24D700CD3FA1 /* ORMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ORMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CFA7BD5F2C3B24D700CD3FA1 /* ORMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ORMTests.swift; sourceTree = "<group>"; };
 		CFA7BD652C3B24D700CD3FA1 /* ORMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ORMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFA7BD692C3B24D700CD3FA1 /* ORMUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ORMUITests.swift; sourceTree = "<group>"; };
 		CFA7BD6B2C3B24D700CD3FA1 /* ORMUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ORMUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -127,7 +125,6 @@
 		CFA7BD5E2C3B24D700CD3FA1 /* ORMTests */ = {
 			isa = PBXGroup;
 			children = (
-				CFA7BD5F2C3B24D700CD3FA1 /* ORMTests.swift */,
 				CFA7BD812C3B2E8200CD3FA1 /* WorkoutDataServiceTests.swift */,
 			);
 			path = ORMTests;
@@ -342,7 +339,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFA7BD602C3B24D700CD3FA1 /* ORMTests.swift in Sources */,
 				CFA7BD822C3B2E8200CD3FA1 /* WorkoutDataServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
