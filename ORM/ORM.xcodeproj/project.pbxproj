@@ -14,6 +14,7 @@
 		CFA7BD602C3B24D700CD3FA1 /* ORMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BD5F2C3B24D700CD3FA1 /* ORMTests.swift */; };
 		CFA7BD6A2C3B24D700CD3FA1 /* ORMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BD692C3B24D700CD3FA1 /* ORMUITests.swift */; };
 		CFA7BD6C2C3B24D700CD3FA1 /* ORMUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BD6B2C3B24D700CD3FA1 /* ORMUITestsLaunchTests.swift */; };
+		CFA7BD7E2C3B27AB00CD3FA1 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BD7D2C3B27AB00CD3FA1 /* Workout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		CFA7BD652C3B24D700CD3FA1 /* ORMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ORMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFA7BD692C3B24D700CD3FA1 /* ORMUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ORMUITests.swift; sourceTree = "<group>"; };
 		CFA7BD6B2C3B24D700CD3FA1 /* ORMUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ORMUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CFA7BD7D2C3B27AB00CD3FA1 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,9 @@
 			children = (
 				CFA7BD4E2C3B24D600CD3FA1 /* ORMApp.swift */,
 				CFA7BD502C3B24D600CD3FA1 /* ContentView.swift */,
+				CFA7BD7A2C3B26AF00CD3FA1 /* View */,
+				CFA7BD7C2C3B278200CD3FA1 /* Model */,
+				CFA7BD7B2C3B26FC00CD3FA1 /* Services */,
 				CFA7BD522C3B24D600CD3FA1 /* Assets.xcassets */,
 				CFA7BD542C3B24D600CD3FA1 /* Preview Content */,
 			);
@@ -125,6 +130,44 @@
 				CFA7BD6B2C3B24D700CD3FA1 /* ORMUITestsLaunchTests.swift */,
 			);
 			path = ORMUITests;
+			sourceTree = "<group>";
+		};
+		CFA7BD782C3B266E00CD3FA1 /* One Rep Max List */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "One Rep Max List";
+			sourceTree = "<group>";
+		};
+		CFA7BD792C3B26A100CD3FA1 /* Workout Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Workout Detail";
+			sourceTree = "<group>";
+		};
+		CFA7BD7A2C3B26AF00CD3FA1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CFA7BD782C3B266E00CD3FA1 /* One Rep Max List */,
+				CFA7BD792C3B26A100CD3FA1 /* Workout Detail */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CFA7BD7B2C3B26FC00CD3FA1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CFA7BD7C2C3B278200CD3FA1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CFA7BD7D2C3B27AB00CD3FA1 /* Workout.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +302,7 @@
 			files = (
 				CFA7BD512C3B24D600CD3FA1 /* ContentView.swift in Sources */,
 				CFA7BD4F2C3B24D600CD3FA1 /* ORMApp.swift in Sources */,
+				CFA7BD7E2C3B27AB00CD3FA1 /* Workout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
