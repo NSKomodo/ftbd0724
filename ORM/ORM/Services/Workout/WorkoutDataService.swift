@@ -27,7 +27,7 @@ class WorkoutDataService {
     /// Attempts to load historical workout data file from app's asset catalog.
     /// - Thows: `WorkoutDataError.dataFile` error if the file is not present in the asset catalog.
     func loadDataFile() throws {
-        if dataFileAsset == nil {
+        if !dataFileIsLoaded {
             dataFileAsset = NSDataAsset(name: "workoutData")
             if dataFileAsset == nil {
                 throw WorkoutDataError.dataFile
