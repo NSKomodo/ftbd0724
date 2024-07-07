@@ -18,6 +18,7 @@
 		CFA7BD802C3B2B5F00CD3FA1 /* WorkoutDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BD7F2C3B2B5F00CD3FA1 /* WorkoutDataService.swift */; };
 		CFA7BD822C3B2E8200CD3FA1 /* WorkoutDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BD812C3B2E8200CD3FA1 /* WorkoutDataServiceTests.swift */; };
 		CFA7BD852C3B2FFC00CD3FA1 /* WorkoutDataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BD842C3B2FFC00CD3FA1 /* WorkoutDataError.swift */; };
+		CFA7BD8A2C3B3D7800CD3FA1 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = CFA7BD892C3B3D7800CD3FA1 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		CFA7BD7F2C3B2B5F00CD3FA1 /* WorkoutDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDataService.swift; sourceTree = "<group>"; };
 		CFA7BD812C3B2E8200CD3FA1 /* WorkoutDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDataServiceTests.swift; sourceTree = "<group>"; };
 		CFA7BD842C3B2FFC00CD3FA1 /* WorkoutDataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDataError.swift; sourceTree = "<group>"; };
+		CFA7BD892C3B3D7800CD3FA1 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				CFA7BD7C2C3B278200CD3FA1 /* Model */,
 				CFA7BD7B2C3B26FC00CD3FA1 /* Services */,
 				CFA7BD522C3B24D600CD3FA1 /* Assets.xcassets */,
+				CFA7BD892C3B3D7800CD3FA1 /* Localizable.xcstrings */,
 				CFA7BD542C3B24D600CD3FA1 /* Preview Content */,
 			);
 			path = ORM;
@@ -281,6 +284,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"es-419",
 			);
 			mainGroup = CFA7BD422C3B24D600CD3FA1;
 			productRefGroup = CFA7BD4C2C3B24D600CD3FA1 /* Products */;
@@ -301,6 +305,7 @@
 			files = (
 				CFA7BD562C3B24D600CD3FA1 /* Preview Assets.xcassets in Resources */,
 				CFA7BD532C3B24D600CD3FA1 /* Assets.xcassets in Resources */,
+				CFA7BD8A2C3B3D7800CD3FA1 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

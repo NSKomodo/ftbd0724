@@ -23,7 +23,8 @@ final class WorkoutDataServiceTests: XCTestCase {
         if dataFileAsset == nil {
             dataFileAsset = NSDataAsset(name: "workoutData")
             if dataFileAsset == nil {
-                XCTFail("Could not load workoutData.txt file from asset catalog")
+                let message = String(localized: "WorkoutDataError.dataFile")
+                XCTFail(message)
             }
         }
         
@@ -32,9 +33,11 @@ final class WorkoutDataServiceTests: XCTestCase {
             XCTAssertEqual(service?.dataFileAsset, dataFileAsset)
             dataFileAsset = nil
         } catch WorkoutDataError.dataFile {
-            XCTFail("Could not load workoutData.txt file from asset catalog using the service instance.")
+            let message = String(localized: "WorkoutDataError.dataFile")
+            XCTFail(message)
         } catch {
-            XCTFail("Unexpected error while attempting to load workoutData.txt file from asset catalog using the service instance.")
+            let message = String(localized: "WorkoutDataError.unexpected")
+            XCTFail(message)
         }
     }
 
