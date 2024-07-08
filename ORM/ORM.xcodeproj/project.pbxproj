@@ -32,6 +32,7 @@
 		CFA7BDAF2C3BDEC500CD3FA1 /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BDAE2C3BDEC500CD3FA1 /* ColorHelper.swift */; };
 		CFA7BDB12C3BE23D00CD3FA1 /* WorkoutDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BDB02C3BE23D00CD3FA1 /* WorkoutDetailViewModelTests.swift */; };
 		CFA7BDB32C3BED4000CD3FA1 /* ColorHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BDB22C3BED4000CD3FA1 /* ColorHelperTests.swift */; };
+		CFA7BDB62C3BF9D100CD3FA1 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BDB52C3BF9D100CD3FA1 /* ErrorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		CFA7BDAE2C3BDEC500CD3FA1 /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
 		CFA7BDB02C3BE23D00CD3FA1 /* WorkoutDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailViewModelTests.swift; sourceTree = "<group>"; };
 		CFA7BDB22C3BED4000CD3FA1 /* ColorHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelperTests.swift; sourceTree = "<group>"; };
+		CFA7BDB52C3BF9D100CD3FA1 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 			children = (
 				CFA7BD782C3B266E00CD3FA1 /* One Rep Max List */,
 				CFA7BD792C3B26A100CD3FA1 /* Workout Detail */,
+				CFA7BDB42C3BF9AD00CD3FA1 /* Error */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -275,6 +278,14 @@
 				CFA7BDAC2C3BC66F00CD3FA1 /* WorkoutDetailViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CFA7BDB42C3BF9AD00CD3FA1 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				CFA7BDB52C3BF9D100CD3FA1 /* ErrorView.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -421,6 +432,7 @@
 				CFA7BDAF2C3BDEC500CD3FA1 /* ColorHelper.swift in Sources */,
 				CFA7BD4F2C3B24D600CD3FA1 /* ORMApp.swift in Sources */,
 				CFA7BD9E2C3BA34000CD3FA1 /* OneRepMaxListViewModel.swift in Sources */,
+				CFA7BDB62C3BF9D100CD3FA1 /* ErrorView.swift in Sources */,
 				CFA7BD7E2C3B27AB00CD3FA1 /* Workout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

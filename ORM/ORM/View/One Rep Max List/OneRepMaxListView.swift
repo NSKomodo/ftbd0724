@@ -13,27 +13,31 @@ struct OneRepMaxListView: View {
     @State var viewModel = ViewModel()
     
     var body: some View {
-        NavigationStack {
-            if !viewModel.oneRepMaxData.isEmpty {
-                List {
-                    ForEach(viewModel.oneRepMaxData.sorted(by: <), id: \.key) { element in
-                        NavigationLink(destination: WorkoutDetailView(viewModel: WorkoutDetailView.ViewModel(exercise: element.key,
-                                                                                                             oneRepMax: element.value,
-                                                                                                             workouts: viewModel.workouts))) {
-                            OneRepMaxListItem(exercise: element.key, oneRepMax: element.value)
+        if let errorMessage = viewModel.errorMessage {
+            ErrorView(errorMessage: errorMessage)
+        } else {
+            NavigationStack {
+                if !viewModel.oneRepMaxData.isEmpty {
+                    List {
+                        ForEach(viewModel.oneRepMaxData.sorted(by: <), id: \.key) { element in
+                            NavigationLink(destination: WorkoutDetailView(viewModel: WorkoutDetailView.ViewModel(exercise: element.key,
+                                                                                                                 oneRepMax: element.value,
+                                                                                                                 workouts: viewModel.workouts))) {
+                                OneRepMaxListItem(exercise: element.key, oneRepMax: element.value)
+                            }
+                            
                         }
-                        
                     }
+                    .navigationTitle("One Rep Max")
+                } else {
+                    ContentUnavailableView("No Data",
+                                           systemImage: "exclamationmark.octagon",
+                                           description: Text("There's no workout data available."))
                 }
-                .navigationTitle("One Rep Max")
-            } else {
-                ContentUnavailableView("No Data",
-                                       systemImage: "exclamationmark.octagon",
-                                       description: Text("There's no workout data available."))
             }
-        }
-        .task {
-            await viewModel.loadWorkoutDataFromFile()
+            .task {
+                await viewModel.loadWorkoutDataFromFile()
+            }
         }
     }
 }

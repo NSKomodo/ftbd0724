@@ -117,6 +117,22 @@
         }
       }
     },
+    "Oops!" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oops!"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ay no!"
+          }
+        }
+      }
+    },
     "There's no workout data available." : {
       "extractionState" : "manual",
       "localizations" : {
