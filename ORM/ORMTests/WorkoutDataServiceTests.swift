@@ -11,7 +11,7 @@ import XCTest
 /// Class that tests the `WorkoutDataService` code.
 final class WorkoutDataServiceTests: XCTestCase {
     /// The service instance to be used during tests.
-    var service: WorkoutDataService?
+    var service: WorkoutDataService!
     
     override func setUpWithError() throws {
         service = WorkoutDataService.shared
@@ -29,8 +29,8 @@ final class WorkoutDataServiceTests: XCTestCase {
         }
         
         do {
-            try service?.loadDataFile()
-            XCTAssertEqual(service?.dataFileAsset, dataFileAsset)
+            try service.loadDataFile()
+            XCTAssertEqual(service.dataFileAsset, dataFileAsset)
             dataFileAsset = nil
         } catch WorkoutDataError.dataFile {
             let message = String(localized: "WorkoutDataError.dataFile")
@@ -72,12 +72,12 @@ final class WorkoutDataServiceTests: XCTestCase {
                                         exercise: exerciseField,
                                         repetitions: reps,
                                         weight: weight)
-            let testWorkout = try service?.parseRow(row: sampleRow)
+            let testWorkout = try service.parseRow(row: sampleRow)
             XCTAssertEqual(testWorkout, sampleWorkout)
             
             // Test corrupted date
             let invalidDateRow = "No date,Barbell Bench Press,4,45"
-            XCTAssertThrowsError(try service?.parseRow(row: invalidDateRow)) { error in
+            XCTAssertThrowsError(try service.parseRow(row: invalidDateRow)) { error in
                 if let error = error as? WorkoutDataError {
                     XCTAssertEqual(error, WorkoutDataError.invalidDateFormat)
                 }
@@ -85,7 +85,7 @@ final class WorkoutDataServiceTests: XCTestCase {
             
             // Test corrupted repetitions
             let invalidRepsRow = "Oct 05 2020,Barbell Bench Press,reps,45"
-            XCTAssertThrowsError(try service?.parseRow(row: invalidRepsRow)) { error in
+            XCTAssertThrowsError(try service.parseRow(row: invalidRepsRow)) { error in
                 if let error = error as? WorkoutDataError {
                     XCTAssertEqual(error, WorkoutDataError.invalidRow)
                 }
@@ -93,7 +93,7 @@ final class WorkoutDataServiceTests: XCTestCase {
             
             // Test corrupted weight
             let invalidWeightRow = "Oct 05 2020,Barbell Bench Press,4,weight"
-            XCTAssertThrowsError(try service?.parseRow(row: invalidWeightRow)) { error in
+            XCTAssertThrowsError(try service.parseRow(row: invalidWeightRow)) { error in
                 if let error = error as? WorkoutDataError {
                     XCTAssertEqual(error, WorkoutDataError.invalidRow)
                 }
@@ -101,13 +101,54 @@ final class WorkoutDataServiceTests: XCTestCase {
             
             // Test for empty row
             let emptyRow = ""
-            XCTAssertThrowsError(try service?.parseRow(row: emptyRow)) { error in
+            XCTAssertThrowsError(try service.parseRow(row: emptyRow)) { error in
                 if let error = error as? WorkoutDataError {
                     XCTAssertEqual(error, WorkoutDataError.invalidRow)
                 }
             }
-        } catch WorkoutDataError.invalidRow {
-            XCTFail(failMessage)
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+        
+    }
+    
+    /// Tests the `serializeWorkoutDataFile` method.
+    func testSerializeWorkoutDataFile() {
+        // Load file
+        do {
+            try service.loadDataFile()
+        } catch WorkoutDataError.dataFile {
+            let message = String(localized: "WorkoutDataError.dataFile")
+            XCTFail(message)
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+        
+        // Get file contents as a string
+        guard let fileData = service.dataFileAsset?.data,
+              let fileContent = String(data: fileData, encoding: .utf8) else {
+            
+            let message = String(localized: "WorkoutDataError.dataFile")
+            XCTFail(message)
+            return
+        }
+        
+        var sampleWorkouts: [Workout] = []
+        
+        // Get workout rows and serialize them to a collection of Workout model objects
+        do {
+            let rows = fileContent.split(separator: "\n").map(String.init)
+            sampleWorkouts =  try rows.compactMap { try service.parseRow(row: $0) }
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+        
+        XCTAssertFalse(sampleWorkouts.isEmpty)
+        
+        do {
+            let testWorkouts = try service.serializeWorkoutDataFile()
+            XCTAssertFalse(testWorkouts.isEmpty)
+            XCTAssertEqual(testWorkouts, sampleWorkouts)
         } catch {
             XCTFail(error.localizedDescription)
         }

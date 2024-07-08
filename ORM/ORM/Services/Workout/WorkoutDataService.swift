@@ -68,5 +68,37 @@ class WorkoutDataService {
                        repetitions: reps,
                        weight: weight)
     }
+    
+    /// Serializes the contents of the historical workout data file into a collection of `Workout` models.
+    /// - Returns: An array of serialized `Workout` objects.
+    func serializeWorkoutDataFile() throws -> [Workout] {
+        // Check if data file has been loaded from assest catalog
+        if !dataFileIsLoaded {
+            throw WorkoutDataError.dataFile
+        }
+        
+        // Get file contents as a string
+        guard let fileData = dataFileAsset?.data,
+              let fileContent = String(data: fileData, encoding: .utf8) else {
+            
+            throw WorkoutDataError.dataFile
+        }
+        
+        var workouts: [Workout] = []
+        
+        // Get workout rows and serialize them to a collection of Workout model objects
+        do {
+            let rows = fileContent.split(separator: "\n").map(String.init)
+            workouts =  try rows.compactMap { try parseRow(row: $0) }
+        } catch WorkoutDataError.dataFile {
+            throw WorkoutDataError.dataFile
+        }  catch WorkoutDataError.invalidDateFormat {
+            throw WorkoutDataError.invalidDateFormat
+        } catch WorkoutDataError.invalidRow {
+            throw WorkoutDataError.invalidRow
+        }
+        
+        return workouts
+    }
 }
 
