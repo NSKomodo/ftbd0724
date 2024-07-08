@@ -1,13 +1,70 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "One Rep Max" : {
+    "No Data" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Data"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Hay Datos"
+          }
+        }
+      }
+    },
+    "One Rep Max " : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "One Rep Max"
+          }
+        },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Repetición Máxima"
+          }
+        }
+      }
+    },
+    "One Rep Max • lbs" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "One Rep Max • lbs"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Repetición Máxima • lbs"
+          }
+        }
+      }
+    },
+    "There's no workout data available." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There's no workout data available."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se ha encontrado información de entrenamientos realizados."
           }
         }
       }

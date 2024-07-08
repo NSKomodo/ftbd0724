@@ -8,20 +8,20 @@
 import XCTest
 @testable import ORM
 
-/// Class that tests the `WorkoutDataService` code.
-final class WorkoutDataServiceTests: XCTestCase {
+/// Class that tests the `WorkoutDataFileService` code.
+final class WorkoutDataFileServiceTests: XCTestCase {
     /// The service instance to be used during tests.
     var service: WorkoutDataService!
     
     override func setUpWithError() throws {
-        service = WorkoutDataService.shared
+        service = WorkoutDataFileService.shared
     }
     
     /// Tests the `loadWorkoutDataFile` method.
     func testLoadWorkoutDataFile() async {
         // Ensure the file exists at the passed URL
-        guard let url = Bundle.main.url(forResource: WorkoutDataService.dataFileName,
-                                        withExtension: WorkoutDataService.dataFileExtension),
+        guard let url = Bundle.main.url(forResource: WorkoutDataFileService.dataFileName,
+                                        withExtension: WorkoutDataFileService.dataFileExtension),
               FileManager.default.fileExists(atPath: url.path) else {
             
             let message = String(localized: "WorkoutDataError.dataFileNotFound")
@@ -132,8 +132,8 @@ final class WorkoutDataServiceTests: XCTestCase {
     /// Tests the `serializeWorkoutDataFile` method.
     func testSerializeWorkoutDataFile() async {
         // Ensure the file exists at the passed URL
-        guard let url = Bundle.main.url(forResource: WorkoutDataService.dataFileName,
-                                             withExtension: WorkoutDataService.dataFileExtension),
+        guard let url = Bundle.main.url(forResource: WorkoutDataFileService.dataFileName,
+                                             withExtension: WorkoutDataFileService.dataFileExtension),
               FileManager.default.fileExists(atPath: url.path) else {
             
             let message = String(localized: "WorkoutDataError.dataFileNotFound")
