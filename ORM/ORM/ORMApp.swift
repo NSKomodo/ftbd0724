@@ -11,7 +11,7 @@ import SwiftUI
 struct ORMApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            OneRepMaxListView()
         }
     }
 }

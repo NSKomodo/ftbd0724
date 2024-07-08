@@ -22,6 +22,7 @@
 		CFA7BD902C3B4C8600CD3FA1 /* DateHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BD8F2C3B4C8600CD3FA1 /* DateHelperTests.swift */; };
 		CFA7BD922C3B6BDD00CD3FA1 /* WorkoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BD912C3B6BDD00CD3FA1 /* WorkoutTests.swift */; };
 		CFA7BD942C3B7F4100CD3FA1 /* workoutData.txt in Resources */ = {isa = PBXBuildFile; fileRef = CFA7BD932C3B7F4100CD3FA1 /* workoutData.txt */; };
+		CFA7BD992C3B976E00CD3FA1 /* OneRepMaxListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BD982C3B976E00CD3FA1 /* OneRepMaxListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		CFA7BD8F2C3B4C8600CD3FA1 /* DateHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelperTests.swift; sourceTree = "<group>"; };
 		CFA7BD912C3B6BDD00CD3FA1 /* WorkoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTests.swift; sourceTree = "<group>"; };
 		CFA7BD932C3B7F4100CD3FA1 /* workoutData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = workoutData.txt; sourceTree = "<group>"; };
+		CFA7BD982C3B976E00CD3FA1 /* OneRepMaxListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneRepMaxListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 		CFA7BD782C3B266E00CD3FA1 /* One Rep Max List */ = {
 			isa = PBXGroup;
 			children = (
+				CFA7BD982C3B976E00CD3FA1 /* OneRepMaxListView.swift */,
 			);
 			path = "One Rep Max List";
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFA7BD992C3B976E00CD3FA1 /* OneRepMaxListView.swift in Sources */,
 				CFA7BD512C3B24D600CD3FA1 /* ContentView.swift in Sources */,
 				CFA7BD802C3B2B5F00CD3FA1 /* WorkoutDataService.swift in Sources */,
 				CFA7BD852C3B2FFC00CD3FA1 /* WorkoutDataError.swift in Sources */,
