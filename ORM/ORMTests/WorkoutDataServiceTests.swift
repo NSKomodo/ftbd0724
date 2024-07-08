@@ -161,6 +161,24 @@ final class WorkoutDataServiceTests: XCTestCase {
             XCTFail(error.localizedDescription)
         }
     }
+    
+    /// Tests the `FetchUniqueExcercices` method.
+    func testFetchUniqueExcercices() {
+        let sampleWorkouts = [Workout(date: DateHelper.parseWorkoutDate(from: "Nov 22 2019")!, exercise: "Back Squat", repetitions: 5, weight: 245),
+                              Workout(date: DateHelper.parseWorkoutDate(from: "Nov 22 2019")!, exercise: "Back Squat", repetitions: 5, weight: 245),
+                              Workout(date: DateHelper.parseWorkoutDate(from: "Nov 20 2019")!, exercise: "Deadlift", repetitions: 10, weight: 45),
+                              Workout(date: DateHelper.parseWorkoutDate(from: "Nov 20 2019")!, exercise: "Deadlift", repetitions: 8, weight: 135),
+                              Workout(date: DateHelper.parseWorkoutDate(from: "Nov 15 2019")!, exercise: "Barbell Bench Press", repetitions: 10, weight: 45),
+                              Workout(date: DateHelper.parseWorkoutDate(from: "Nov 15 2019")!, exercise: "Barbell Bench Press", repetitions: 8, weight: 130)]
+        let uniqueRows = sampleWorkouts.reduce(into: [String: Workout]()) { dict, row in
+            if dict[row.exercise] == nil {
+                dict[row.exercise] = row
+            }
+        }
+        let sampleExercices = Array(uniqueRows.keys)
+        let testExcercises = service.fetchUniqueExcercices(from: sampleWorkouts)
+        XCTAssertEqual(testExcercises.sorted(by: >), sampleExercices.sorted(by: >))
+    }
 
     override func tearDownWithError() throws {
         service = nil

@@ -103,5 +103,17 @@ class WorkoutDataService {
         
         return workouts
     }
+    
+    /// Filters all workout rows from a give collection based on uniique exercises.
+    /// - Parameter from: The workout collection that needs to be filtered.
+    /// - Returns: A filtered array of `String` objects with unique exercise values.
+    func fetchUniqueExcercices(from workouts: [Workout]) -> [String] {
+        let uniqueRows = workouts.reduce(into: [String: Workout]()) { dict, row in
+            if dict[row.exercise] == nil {
+                dict[row.exercise] = row
+            }
+        }
+        return Array(uniqueRows.keys)
+    }
 }
 
