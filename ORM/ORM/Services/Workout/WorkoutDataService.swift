@@ -104,16 +104,14 @@ class WorkoutDataService {
         return workouts
     }
     
-    /// Filters all workout rows from a give collection based on uniique exercises.
-    /// - Parameter from: The workout collection that needs to be filtered.
-    /// - Returns: A filtered array of `String` objects with unique exercise values.
-    func fetchUniqueExcercices(from workouts: [Workout]) -> [String] {
-        let uniqueRows = workouts.reduce(into: [String: Workout]()) { dict, row in
-            if dict[row.exercise] == nil {
-                dict[row.exercise] = row
-            }
+    /// Calculates the overall one-rep max per exercise.
+    /// - Parameter workouts: The `Workout` collection to calculate from.
+    /// - Returns: The calculated overall one-rep max per excercise.
+    func calculateOverallOneRepMaxPerExercise(from workouts: [Workout]) -> [String: Double] {
+        workouts.reduce(into: [String: Double]()) { result, workout in
+            let oneRepMax = workout.oneRepMax
+            result[workout.exercise] = max(result[workout.exercise] ?? 0, oneRepMax)
         }
-        return Array(uniqueRows.keys)
     }
 }
 

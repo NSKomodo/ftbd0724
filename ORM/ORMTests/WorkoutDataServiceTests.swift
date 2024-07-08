@@ -163,21 +163,21 @@ final class WorkoutDataServiceTests: XCTestCase {
     }
     
     /// Tests the `FetchUniqueExcercices` method.
-    func testFetchUniqueExcercices() {
-        let sampleWorkouts = [Workout(date: DateHelper.parseWorkoutDate(from: "Nov 22 2019")!, exercise: "Back Squat", repetitions: 5, weight: 245),
-                              Workout(date: DateHelper.parseWorkoutDate(from: "Nov 22 2019")!, exercise: "Back Squat", repetitions: 5, weight: 245),
-                              Workout(date: DateHelper.parseWorkoutDate(from: "Nov 20 2019")!, exercise: "Deadlift", repetitions: 10, weight: 45),
-                              Workout(date: DateHelper.parseWorkoutDate(from: "Nov 20 2019")!, exercise: "Deadlift", repetitions: 8, weight: 135),
-                              Workout(date: DateHelper.parseWorkoutDate(from: "Nov 15 2019")!, exercise: "Barbell Bench Press", repetitions: 10, weight: 45),
-                              Workout(date: DateHelper.parseWorkoutDate(from: "Nov 15 2019")!, exercise: "Barbell Bench Press", repetitions: 8, weight: 130)]
-        let uniqueRows = sampleWorkouts.reduce(into: [String: Workout]()) { dict, row in
-            if dict[row.exercise] == nil {
-                dict[row.exercise] = row
-            }
+    func testCalculateOverallOneRepMaxPerExercise() {
+        let workouts = [Workout(date: DateHelper.parseWorkoutDate(from: "Nov 22 2019")!, exercise: "Back Squat", repetitions: 5, weight: 245),
+                                  Workout(date: DateHelper.parseWorkoutDate(from: "Nov 22 2019")!, exercise: "Back Squat", repetitions: 5, weight: 245),
+                                  Workout(date: DateHelper.parseWorkoutDate(from: "Nov 20 2019")!, exercise: "Deadlift", repetitions: 10, weight: 45),
+                                  Workout(date: DateHelper.parseWorkoutDate(from: "Nov 20 2019")!, exercise: "Deadlift", repetitions: 8, weight: 135),
+                                  Workout(date: DateHelper.parseWorkoutDate(from: "Nov 15 2019")!, exercise: "Barbell Bench Press", repetitions: 10, weight: 45),
+                                  Workout(date: DateHelper.parseWorkoutDate(from: "Nov 15 2019")!, exercise: "Barbell Bench Press", repetitions: 8, weight: 130)]
+        let calculated1RM = workouts.reduce(into: [String: Double]()) { result, workout in
+            let oneRepMax = workout.oneRepMax
+            result[workout.exercise, default: 0] = max(result[workout.exercise, default: 0], oneRepMax)
         }
-        let sampleExercices = Array(uniqueRows.keys)
-        let testExcercises = service.fetchUniqueExcercices(from: sampleWorkouts)
-        XCTAssertEqual(testExcercises.sorted(by: >), sampleExercices.sorted(by: >))
+        
+        XCTAssertEqual(calculated1RM["Back Squat"] ?? 0, 275.625, accuracy: 0.01)
+        XCTAssertEqual(calculated1RM["Barbell Bench Press"] ?? 0, 161.3793103448276, accuracy: 0.01)
+        XCTAssertEqual(calculated1RM["Deadlift"] ?? 0, 167.58620689655172, accuracy: 0.01)
     }
 
     override func tearDownWithError() throws {
