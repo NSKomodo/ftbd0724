@@ -1,0 +1,57 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "WorkoutDataError.dataFile" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not load workoutData.txt file from asset catalog."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo cargar el archivo workoutData.txt desde el catálogo."
+          }
+        }
+      }
+    },
+    "WorkoutDataError.invalidRow" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Workout data row is invalid. Make sure each row is formatted as comma separated string consisting of: \"date,exercise, repetitions,weight\""
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La fila de datos de este entrenamiento no es válida. Asegúrese de que cada fila tenga el siguiente formato: \"fecha,ejercicio,repeticiones,peso\""
+          }
+        }
+      }
+    },
+    "WorkoutDataError.unexpected" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unexpected error while attempting to load workoutData.txt file from asset catalog"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error inesperado al cargar el archivo workoutData.txt desde el catálogo."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
