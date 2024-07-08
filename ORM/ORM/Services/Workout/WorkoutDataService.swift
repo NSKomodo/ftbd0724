@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Provides a blueprint to build implementations of workout data file services.
 protocol WorkoutDataService {
     /// Parses a workout row from the historical data file.
     /// - Parameters:
@@ -27,5 +28,12 @@ protocol WorkoutDataService {
     /// - Parameter workouts: The `Workout` collection to calculate from.
     /// - Returns: The calculated overall one-rep max per excercise.
     func calculateOverallOneRepMaxPerExercise(from workouts: [Workout]) -> [String: Double]
+    
+    /// Filters workout from a given `Workout` collection by exercise name.
+    /// - Parameters:
+    ///   - exercise: The exercise we want to use to filter.
+    ///   - workouts: The collection of `Workout` objects to be filtered.
+    /// - Returns: A filtered collection of `Workout` objects.
+    func filterWorkouts(byExercise exercise: String, from workouts: [Workout]) -> [Workout]
 }
 

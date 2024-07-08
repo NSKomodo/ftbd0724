@@ -58,5 +58,11 @@ final class MockWorkoutDataService: WorkoutDataService {
          "Barbell Bench Press": 161.3793103448276,
          "Deadlift": 167.58620689655172]
     }
+    
+    /// Mock `calculateOverallOneRepMaxPerExercise` method.
+    func filterWorkouts(byExercise exercise: String, from workouts: [Workout]) -> [Workout] {
+        [Workout(date: DateHelper.parseWorkoutDate(from: "Nov 22 2019")!, exercise: "Back Squat", repetitions: 5, weight: 245),
+         Workout(date: DateHelper.parseWorkoutDate(from: "Nov 22 2019")!, exercise: "Back Squat", repetitions: 5, weight: 245)]
+    }
 }
 

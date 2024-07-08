@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CFA7BD4F2C3B24D600CD3FA1 /* ORMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BD4E2C3B24D600CD3FA1 /* ORMApp.swift */; };
-		CFA7BD512C3B24D600CD3FA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BD502C3B24D600CD3FA1 /* ContentView.swift */; };
 		CFA7BD532C3B24D600CD3FA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFA7BD522C3B24D600CD3FA1 /* Assets.xcassets */; };
 		CFA7BD562C3B24D600CD3FA1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFA7BD552C3B24D600CD3FA1 /* Preview Assets.xcassets */; };
 		CFA7BD6A2C3B24D700CD3FA1 /* ORMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BD692C3B24D700CD3FA1 /* ORMUITests.swift */; };
@@ -28,6 +27,11 @@
 		CFA7BDA22C3BAB7400CD3FA1 /* OneRepMaxListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BDA12C3BAB7400CD3FA1 /* OneRepMaxListViewModelTests.swift */; };
 		CFA7BDA52C3BAD0900CD3FA1 /* MockWorkoutDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BDA42C3BAD0900CD3FA1 /* MockWorkoutDataService.swift */; };
 		CFA7BDA72C3BC1F400CD3FA1 /* OneRepMaxListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BDA62C3BC1F400CD3FA1 /* OneRepMaxListItem.swift */; };
+		CFA7BDAA2C3BC54B00CD3FA1 /* WorkoutDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BDA92C3BC54B00CD3FA1 /* WorkoutDetailView.swift */; };
+		CFA7BDAD2C3BC66F00CD3FA1 /* WorkoutDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BDAC2C3BC66F00CD3FA1 /* WorkoutDetailViewModel.swift */; };
+		CFA7BDAF2C3BDEC500CD3FA1 /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BDAE2C3BDEC500CD3FA1 /* ColorHelper.swift */; };
+		CFA7BDB12C3BE23D00CD3FA1 /* WorkoutDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BDB02C3BE23D00CD3FA1 /* WorkoutDetailViewModelTests.swift */; };
+		CFA7BDB32C3BED4000CD3FA1 /* ColorHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BDB22C3BED4000CD3FA1 /* ColorHelperTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +54,6 @@
 /* Begin PBXFileReference section */
 		CFA7BD4B2C3B24D600CD3FA1 /* ORM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ORM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFA7BD4E2C3B24D600CD3FA1 /* ORMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ORMApp.swift; sourceTree = "<group>"; };
-		CFA7BD502C3B24D600CD3FA1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CFA7BD522C3B24D600CD3FA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFA7BD552C3B24D600CD3FA1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CFA7BD5B2C3B24D700CD3FA1 /* ORMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ORMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +75,11 @@
 		CFA7BDA12C3BAB7400CD3FA1 /* OneRepMaxListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneRepMaxListViewModelTests.swift; sourceTree = "<group>"; };
 		CFA7BDA42C3BAD0900CD3FA1 /* MockWorkoutDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWorkoutDataService.swift; sourceTree = "<group>"; };
 		CFA7BDA62C3BC1F400CD3FA1 /* OneRepMaxListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneRepMaxListItem.swift; sourceTree = "<group>"; };
+		CFA7BDA92C3BC54B00CD3FA1 /* WorkoutDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailView.swift; sourceTree = "<group>"; };
+		CFA7BDAC2C3BC66F00CD3FA1 /* WorkoutDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailViewModel.swift; sourceTree = "<group>"; };
+		CFA7BDAE2C3BDEC500CD3FA1 /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
+		CFA7BDB02C3BE23D00CD3FA1 /* WorkoutDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailViewModelTests.swift; sourceTree = "<group>"; };
+		CFA7BDB22C3BED4000CD3FA1 /* ColorHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelperTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,13 +130,12 @@
 		CFA7BD4D2C3B24D600CD3FA1 /* ORM */ = {
 			isa = PBXGroup;
 			children = (
-				CFA7BD4E2C3B24D600CD3FA1 /* ORMApp.swift */,
-				CFA7BD502C3B24D600CD3FA1 /* ContentView.swift */,
 				CFA7BD7A2C3B26AF00CD3FA1 /* View */,
 				CFA7BD7C2C3B278200CD3FA1 /* Model */,
 				CFA7BD7B2C3B26FC00CD3FA1 /* Services */,
 				CFA7BD8B2C3B484700CD3FA1 /* Utilities */,
 				CFA7BD952C3B7F4A00CD3FA1 /* Data Files */,
+				CFA7BD4E2C3B24D600CD3FA1 /* ORMApp.swift */,
 				CFA7BD522C3B24D600CD3FA1 /* Assets.xcassets */,
 				CFA7BD892C3B3D7800CD3FA1 /* Localizable.xcstrings */,
 				CFA7BD542C3B24D600CD3FA1 /* Preview Content */,
@@ -151,7 +158,9 @@
 				CFA7BD912C3B6BDD00CD3FA1 /* WorkoutTests.swift */,
 				CFA7BD812C3B2E8200CD3FA1 /* WorkoutDataFileServiceTests.swift */,
 				CFA7BDA12C3BAB7400CD3FA1 /* OneRepMaxListViewModelTests.swift */,
+				CFA7BDB02C3BE23D00CD3FA1 /* WorkoutDetailViewModelTests.swift */,
 				CFA7BD8F2C3B4C8600CD3FA1 /* DateHelperTests.swift */,
+				CFA7BDB22C3BED4000CD3FA1 /* ColorHelperTests.swift */,
 			);
 			path = ORMTests;
 			sourceTree = "<group>";
@@ -178,6 +187,8 @@
 		CFA7BD792C3B26A100CD3FA1 /* Workout Detail */ = {
 			isa = PBXGroup;
 			children = (
+				CFA7BDAB2C3BC65000CD3FA1 /* ViewModel */,
+				CFA7BDA92C3BC54B00CD3FA1 /* WorkoutDetailView.swift */,
 			);
 			path = "Workout Detail";
 			sourceTree = "<group>";
@@ -229,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				CFA7BD8D2C3B48A600CD3FA1 /* DateHelper.swift */,
+				CFA7BDAE2C3BDEC500CD3FA1 /* ColorHelper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -255,6 +267,14 @@
 				CFA7BDA42C3BAD0900CD3FA1 /* MockWorkoutDataService.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		CFA7BDAB2C3BC65000CD3FA1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CFA7BDAC2C3BC66F00CD3FA1 /* WorkoutDetailViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,12 +411,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFA7BD992C3B976E00CD3FA1 /* OneRepMaxListView.swift in Sources */,
-				CFA7BD512C3B24D600CD3FA1 /* ContentView.swift in Sources */,
+				CFA7BDAD2C3BC66F00CD3FA1 /* WorkoutDetailViewModel.swift in Sources */,
+				CFA7BDAA2C3BC54B00CD3FA1 /* WorkoutDetailView.swift in Sources */,
 				CFA7BDA02C3BAA2B00CD3FA1 /* WorkoutDataService.swift in Sources */,
 				CFA7BD802C3B2B5F00CD3FA1 /* WorkoutDataFileService.swift in Sources */,
 				CFA7BDA72C3BC1F400CD3FA1 /* OneRepMaxListItem.swift in Sources */,
 				CFA7BD852C3B2FFC00CD3FA1 /* WorkoutDataError.swift in Sources */,
 				CFA7BD8E2C3B48A600CD3FA1 /* DateHelper.swift in Sources */,
+				CFA7BDAF2C3BDEC500CD3FA1 /* ColorHelper.swift in Sources */,
 				CFA7BD4F2C3B24D600CD3FA1 /* ORMApp.swift in Sources */,
 				CFA7BD9E2C3BA34000CD3FA1 /* OneRepMaxListViewModel.swift in Sources */,
 				CFA7BD7E2C3B27AB00CD3FA1 /* Workout.swift in Sources */,
@@ -408,9 +430,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFA7BD822C3B2E8200CD3FA1 /* WorkoutDataFileServiceTests.swift in Sources */,
+				CFA7BDB12C3BE23D00CD3FA1 /* WorkoutDetailViewModelTests.swift in Sources */,
 				CFA7BD902C3B4C8600CD3FA1 /* DateHelperTests.swift in Sources */,
 				CFA7BDA52C3BAD0900CD3FA1 /* MockWorkoutDataService.swift in Sources */,
 				CFA7BDA22C3BAB7400CD3FA1 /* OneRepMaxListViewModelTests.swift in Sources */,
+				CFA7BDB32C3BED4000CD3FA1 /* ColorHelperTests.swift in Sources */,
 				CFA7BD922C3B6BDD00CD3FA1 /* WorkoutTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

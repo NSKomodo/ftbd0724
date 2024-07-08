@@ -1,6 +1,55 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "1RM" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1RM"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1RM"
+          }
+        }
+      }
+    },
+    "Date" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Date"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fecha"
+          }
+        }
+      }
+    },
+    "Historical 1RM Data" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Historical 1RM Data"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Historial 1RM"
+          }
+        }
+      }
+    },
     "No Data" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -14,6 +63,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No Hay Datos"
+          }
+        }
+      }
+    },
+    "One Rep Max" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "One Rep Max"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Repetición Máxima"
           }
         }
       }
@@ -82,6 +147,54 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No se pudo cargar el archivo workoutData.txt desde el catálogo."
+          }
+        }
+      }
+    },
+    "WorkoutDataError.dataFileNotFound" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Workout data file is missing."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El archivo workoutData.txt no existe."
+          }
+        }
+      }
+    },
+    "WorkoutDataError.invalidDataFile" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Workout data row is invalid or corrupted."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Una fila de datos en el archivo no es válida."
+          }
+        }
+      }
+    },
+    "WorkoutDataError.invalidDateFormat" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A row has a date field that is not correct."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Una fila no tiene la fecha en el formato correcto."
           }
         }
       }
