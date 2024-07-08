@@ -15,33 +15,37 @@ struct WorkoutDetailView: View {
     @State private var scrollPosition = 0
     
     var body: some View {
-        VStack {
-            OneRepMaxListItem(exercise: viewModel.exercise,
-                              oneRepMax: viewModel.oneRepMax)
-            .padding()
-            Chart {
-                ForEach(viewModel.filteredData, id: \.self) { record in
-                    LineMark(
-                        x: .value("Date", record.date),
-                        y: .value("1RM", record.oneRepMax)
-                    )
-                    .interpolationMethod(.catmullRom)
-                    .symbol {
-                        Circle()
-                            .stroke(Color.blue, lineWidth: 2)
-                            .fill(Color(UIColor.systemBackground))
-                            .frame(width: 5, height: 5)
+        if let errorMessage = viewModel.errorMessage {
+            ErrorView(errorMessage: errorMessage)
+        } else {
+            VStack {
+                OneRepMaxListItem(exercise: viewModel.exercise,
+                                  oneRepMax: viewModel.oneRepMax)
+                .padding()
+                Chart {
+                    ForEach(viewModel.filteredData, id: \.self) { record in
+                        LineMark(
+                            x: .value("Date", record.date),
+                            y: .value("1RM", record.oneRepMax)
+                        )
+                        .interpolationMethod(.catmullRom)
+                        .symbol {
+                            Circle()
+                                .stroke(Color.blue, lineWidth: 2)
+                                .fill(Color(UIColor.systemBackground))
+                                .frame(width: 5, height: 5)
+                        }
                     }
                 }
+                .frame(height: 200)
+                .padding()
+                .chartScrollableAxes(.horizontal)
+                Spacer()
             }
-            .frame(height: 200)
-            .padding()
-            .chartScrollableAxes(.horizontal)
-            Spacer()
-        }
-        .navigationTitle("Historical 1RM Data")
-        .task {
-            viewModel.loadFilteredWorkoutData()
+            .navigationTitle("Historical 1RM Data")
+            .task {
+                viewModel.loadFilteredWorkoutData()
+            }
         }
     }
 }
