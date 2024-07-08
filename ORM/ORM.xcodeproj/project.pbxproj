@@ -171,6 +171,7 @@
 		CFA7BD7A2C3B26AF00CD3FA1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CFA7BD9B2C3BA0B100CD3FA1 /* Loading */,
 				CFA7BD782C3B266E00CD3FA1 /* One Rep Max List */,
 				CFA7BD792C3B26A100CD3FA1 /* Workout Detail */,
 			);
@@ -224,6 +225,13 @@
 				CFA7BD932C3B7F4100CD3FA1 /* workoutData.txt */,
 			);
 			path = "Data Files";
+			sourceTree = "<group>";
+		};
+		CFA7BD9B2C3BA0B100CD3FA1 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Loading;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
