@@ -152,7 +152,6 @@ final class WorkoutDataServiceTests: XCTestCase {
         } catch {
             XCTFail(error.localizedDescription)
         }
-        
     }
 
     override func tearDownWithError() throws {
