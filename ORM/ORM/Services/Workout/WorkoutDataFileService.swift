@@ -113,5 +113,14 @@ class WorkoutDataFileService: WorkoutDataService {
             result[workout.exercise] = max(result[workout.exercise] ?? 0, oneRepMax)
         }
     }
+    
+    /// Filters workout from a given `Workout` collection by exercise name.
+    /// - Parameters:
+    ///   - exercise: The exercise we want to use to filter.
+    ///   - workouts: The collection of `Workout` objects to be filtered.
+    /// - Returns: A filtered collection of `Workout` objects.
+    func filterWorkouts(byExercise exercise: String, from workouts: [Workout]) -> [Workout] {
+        workouts.filter { $0.exercise.lowercased() == exercise.lowercased() }
+    }
 }
 

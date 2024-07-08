@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// View that will render the calculated One-Rep Max value for each exercice inside the data file.
+/// View that will render the calculated one-rep max value for each exercice inside the data file.
 struct OneRepMaxListView: View {
     
     @State var viewModel = ViewModel()
@@ -17,7 +17,12 @@ struct OneRepMaxListView: View {
             if !viewModel.oneRepMaxData.isEmpty {
                 List {
                     ForEach(viewModel.oneRepMaxData.sorted(by: <), id: \.key) { element in
-                        OneRepMaxListItem(exercise: element.key, oneRepMax: element.value)
+                        NavigationLink(destination: WorkoutDetailView(viewModel: WorkoutDetailView.ViewModel(exercise: element.key,
+                                                                                                             oneRepMax: element.value,
+                                                                                                             workouts: viewModel.workouts))) {
+                            OneRepMaxListItem(exercise: element.key, oneRepMax: element.value)
+                        }
+                        
                     }
                 }
                 .navigationTitle("One Rep Max")

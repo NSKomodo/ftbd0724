@@ -22,8 +22,8 @@ struct Workout: Equatable, Hashable, Codable {
 // MARK: - One Rep Max Calculation
 
 extension Workout {
-    /// Calculates the One-Rep Max of a workout based on the Brzycki formula.
-    /// - SeeAlso: [One-repetition maximum on Wikpedia](https://en.wikipedia.org/wiki/One-repetition_maximum)
+    /// Calculates the one-rep max of a workout based on the Brzycki formula.
+    /// - SeeAlso: For more information about the chosen formula, please visit [One-repetition maximum on Wikpedia](https://en.wikipedia.org/wiki/One-repetition_maximum)
     /// - Returns: The estimated 1RM value for the workout.
     var oneRepMax: Double {
         weight * (36 / Double(37 - repetitions))
