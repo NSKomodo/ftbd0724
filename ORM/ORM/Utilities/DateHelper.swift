@@ -18,6 +18,7 @@ struct DateHelper {
     static func parseWorkoutDate(from dateField: String) -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = DateHelper.dateFormat
+        dateFormatter.locale = Locale(identifier: "en_US")
         return dateFormatter.date(from: dateField)
     }
 }
