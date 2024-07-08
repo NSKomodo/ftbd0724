@@ -10,30 +10,17 @@ import UIKit
 /// Service that parses and processes a historical workout data file.
 /// Each workout record is a comma separted string per line using.
 class WorkoutDataService {
+    
+    /// The historical workout data file extension.
+    static let dataFileName = "workoutData"
+    /// The historical workout data file extension.
+    static let dataFileExtension = "txt"
+    
     /// The shared singleton service object.
     static let shared = WorkoutDataService()
     
-    /// Data asset representation of the historical workout data file to be processed.
-    private(set) var dataFileAsset: NSDataAsset?
-    
-    /// Determines if the historical workout data file is loaded.
-    var dataFileIsLoaded: Bool {
-        dataFileAsset != nil
-    }
-    
     /// Default initializer.
     private init() {}
-    
-    /// Attempts to load historical workout data file from app's asset catalog.
-    /// - Thows: `WorkoutDataError.dataFile` error if the file is not present in the asset catalog.
-    func loadDataFile() throws {
-        if !dataFileIsLoaded {
-            dataFileAsset = NSDataAsset(name: "workoutData")
-            if dataFileAsset == nil {
-                throw WorkoutDataError.dataFile
-            }
-        }
-    }
     
     /// Parses a workout row from the historical data file.
     /// - Parameters:
@@ -69,29 +56,45 @@ class WorkoutDataService {
                        weight: weight)
     }
     
+    /// Loads the historical workout data file asynchronously.
+    /// - Parameter url: The file path `URL`.
+    /// - Returns: The contents of the data file as a `String`.
+    func loadWorkoutDataFile(atPath url: URL) async throws -> String? {
+        // Ensure the file exists at the passed URL
+        guard FileManager.default.fileExists(atPath: url.path) else {
+            throw WorkoutDataError.dataFileNotFound
+        }
+        
+        // Read the file data asynchoronously
+        let data = try await withCheckedThrowingContinuation { continuation in
+            DispatchQueue.global().async {
+                do {
+                    let data = try Data(contentsOf: url)
+                    continuation.resume(returning: data)
+                } catch {
+                    continuation.resume(throwing: WorkoutDataError.invalidDataFile)
+                }
+            }
+        }
+        
+        return String(data: data, encoding: .utf8)
+    }
+    
     /// Serializes the contents of the historical workout data file into a collection of `Workout` models.
     /// - Returns: An array of serialized `Workout` objects.
-    func serializeWorkoutDataFile() throws -> [Workout] {
-        // Check if data file has been loaded from assest catalog
-        if !dataFileIsLoaded {
-            throw WorkoutDataError.dataFile
-        }
-        
-        // Get file contents as a string
-        guard let fileData = dataFileAsset?.data,
-              let fileContent = String(data: fileData, encoding: .utf8) else {
-            
-            throw WorkoutDataError.dataFile
-        }
-        
+    func serializeWorkoutDataFile(atPath url: URL) async throws -> [Workout] {
         var workouts: [Workout] = []
         
         // Get workout rows and serialize them to a collection of Workout model objects
         do {
+            // Get file contents as a string
+            guard let fileContent = try await loadWorkoutDataFile(atPath: url) else {
+                throw WorkoutDataError.invalidDataFile
+            }
             let rows = fileContent.split(separator: "\n").map(String.init)
             workouts =  try rows.compactMap { try parseRow(row: $0) }
-        } catch WorkoutDataError.dataFile {
-            throw WorkoutDataError.dataFile
+        } catch WorkoutDataError.invalidDataFile {
+            throw WorkoutDataError.invalidDataFile
         }  catch WorkoutDataError.invalidDateFormat {
             throw WorkoutDataError.invalidDateFormat
         } catch WorkoutDataError.invalidRow {

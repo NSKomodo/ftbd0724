@@ -21,6 +21,7 @@
 		CFA7BD8E2C3B48A600CD3FA1 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BD8D2C3B48A600CD3FA1 /* DateHelper.swift */; };
 		CFA7BD902C3B4C8600CD3FA1 /* DateHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BD8F2C3B4C8600CD3FA1 /* DateHelperTests.swift */; };
 		CFA7BD922C3B6BDD00CD3FA1 /* WorkoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7BD912C3B6BDD00CD3FA1 /* WorkoutTests.swift */; };
+		CFA7BD942C3B7F4100CD3FA1 /* workoutData.txt in Resources */ = {isa = PBXBuildFile; fileRef = CFA7BD932C3B7F4100CD3FA1 /* workoutData.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		CFA7BD8D2C3B48A600CD3FA1 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		CFA7BD8F2C3B4C8600CD3FA1 /* DateHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelperTests.swift; sourceTree = "<group>"; };
 		CFA7BD912C3B6BDD00CD3FA1 /* WorkoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTests.swift; sourceTree = "<group>"; };
+		CFA7BD932C3B7F4100CD3FA1 /* workoutData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = workoutData.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				CFA7BD7C2C3B278200CD3FA1 /* Model */,
 				CFA7BD7B2C3B26FC00CD3FA1 /* Services */,
 				CFA7BD8B2C3B484700CD3FA1 /* Utilities */,
+				CFA7BD952C3B7F4A00CD3FA1 /* Data Files */,
 				CFA7BD522C3B24D600CD3FA1 /* Assets.xcassets */,
 				CFA7BD892C3B3D7800CD3FA1 /* Localizable.xcstrings */,
 				CFA7BD542C3B24D600CD3FA1 /* Preview Content */,
@@ -210,6 +213,14 @@
 				CFA7BD8D2C3B48A600CD3FA1 /* DateHelper.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		CFA7BD952C3B7F4A00CD3FA1 /* Data Files */ = {
+			isa = PBXGroup;
+			children = (
+				CFA7BD932C3B7F4100CD3FA1 /* workoutData.txt */,
+			);
+			path = "Data Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,6 +330,7 @@
 			files = (
 				CFA7BD562C3B24D600CD3FA1 /* Preview Assets.xcassets in Resources */,
 				CFA7BD532C3B24D600CD3FA1 /* Assets.xcassets in Resources */,
+				CFA7BD942C3B7F4100CD3FA1 /* workoutData.txt in Resources */,
 				CFA7BD8A2C3B3D7800CD3FA1 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

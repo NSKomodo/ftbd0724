@@ -17,27 +17,44 @@ final class WorkoutDataServiceTests: XCTestCase {
         service = WorkoutDataService.shared
     }
     
-    /// Tests the `loadDataFile` method.
-    func testLoadDataFile() {
-        var dataFileAsset: NSDataAsset?
-        if dataFileAsset == nil {
-            dataFileAsset = NSDataAsset(name: "workoutData")
-            if dataFileAsset == nil {
-                let message = String(localized: "WorkoutDataError.dataFile")
-                XCTFail(message)
-            }
+    /// Tests the `loadWorkoutDataFile` method.
+    func testLoadWorkoutDataFile() async {
+        // Ensure the file exists at the passed URL
+        guard let url = Bundle.main.url(forResource: WorkoutDataService.dataFileName,
+                                        withExtension: WorkoutDataService.dataFileExtension),
+              FileManager.default.fileExists(atPath: url.path) else {
+            
+            let message = String(localized: "WorkoutDataError.dataFileNotFound")
+            XCTFail(message)
+            return
         }
         
         do {
-            try service.loadDataFile()
-            XCTAssertEqual(service.dataFileAsset, dataFileAsset)
-            dataFileAsset = nil
-        } catch WorkoutDataError.dataFile {
-            let message = String(localized: "WorkoutDataError.dataFile")
-            XCTFail(message)
+            // Read the file data asynchoronously
+            let data = try await withCheckedThrowingContinuation { continuation in
+                DispatchQueue.global().async {
+                    do {
+                        let data = try Data(contentsOf: url)
+                        continuation.resume(returning: data)
+                    } catch {
+                        continuation.resume(throwing: WorkoutDataError.invalidDataFile)
+                    }
+                }
+            }
+            
+            let sampleFileContents = String(data: data, encoding: .utf8)
+            let testFileContents = try await service.loadWorkoutDataFile(atPath: url)
+            XCTAssertEqual(testFileContents, sampleFileContents)
+            
+            // Test invalid file
+            guard Bundle.main.url(forResource: "testFileName",
+                                  withExtension: "testExtension") != nil else {
+                
+                XCTAssert(true)
+                return
+            }
         } catch {
-            let message = String(localized: "WorkoutDataError.unexpected")
-            XCTFail(message)
+            XCTFail(error.localizedDescription)
         }
     }
     
@@ -113,40 +130,31 @@ final class WorkoutDataServiceTests: XCTestCase {
     }
     
     /// Tests the `serializeWorkoutDataFile` method.
-    func testSerializeWorkoutDataFile() {
-        // Load file
-        do {
-            try service.loadDataFile()
-        } catch WorkoutDataError.dataFile {
-            let message = String(localized: "WorkoutDataError.dataFile")
-            XCTFail(message)
-        } catch {
-            XCTFail(error.localizedDescription)
-        }
-        
-        // Get file contents as a string
-        guard let fileData = service.dataFileAsset?.data,
-              let fileContent = String(data: fileData, encoding: .utf8) else {
+    func testSerializeWorkoutDataFile() async {
+        // Ensure the file exists at the passed URL
+        guard let url = Bundle.main.url(forResource: WorkoutDataService.dataFileName,
+                                             withExtension: WorkoutDataService.dataFileExtension),
+              FileManager.default.fileExists(atPath: url.path) else {
             
-            let message = String(localized: "WorkoutDataError.dataFile")
+            let message = String(localized: "WorkoutDataError.dataFileNotFound")
             XCTFail(message)
             return
         }
         
         var sampleWorkouts: [Workout] = []
-        
-        // Get workout rows and serialize them to a collection of Workout model objects
         do {
+            // Get file contents as a string
+            guard let fileContent = try await service.loadWorkoutDataFile(atPath: url) else {
+                throw WorkoutDataError.invalidDataFile
+            }
+            
+            // Get workout rows and serialize them to a collection of Workout model objects
             let rows = fileContent.split(separator: "\n").map(String.init)
-            sampleWorkouts =  try rows.compactMap { try service.parseRow(row: $0) }
-        } catch {
-            XCTFail(error.localizedDescription)
-        }
-        
-        XCTAssertFalse(sampleWorkouts.isEmpty)
-        
-        do {
-            let testWorkouts = try service.serializeWorkoutDataFile()
+            sampleWorkouts = try rows.compactMap { try service.parseRow(row: $0) }
+            XCTAssertFalse(sampleWorkouts.isEmpty)
+            
+            // Test service call
+            let testWorkouts = try await service.serializeWorkoutDataFile(atPath: url)
             XCTAssertFalse(testWorkouts.isEmpty)
             XCTAssertEqual(testWorkouts, sampleWorkouts)
         } catch {
