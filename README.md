@@ -1,4 +1,4 @@
-## How did I build?
+## How did I build it?
 
 This application is built using SwiftUI, Combine, and modern Swift concurrency. Loading of large data files is handled asynchronously to maintain responsiveness and optimal performance. Every class is fully documented, and inline code comments have been added where relevant. No third-party frameworks were used, and the project is ready-to-run using Xcode 15.4 and iOS 17.5. No internet connection is required to run the app on the iOS simulator.
 
