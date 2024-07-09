@@ -150,6 +150,16 @@
         }
       }
     },
+    "Visible days: %lld" : {
+      "localizations" : {
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Días visibles: %lld"
+          }
+        }
+      }
+    },
     "WorkoutDataError.dataFile" : {
       "extractionState" : "manual",
       "localizations" : {

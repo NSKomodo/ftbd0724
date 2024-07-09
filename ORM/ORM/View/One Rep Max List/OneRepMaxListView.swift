@@ -10,6 +10,7 @@ import SwiftUI
 /// View that will render the calculated one-rep max value for each exercice inside the data file.
 struct OneRepMaxListView: View {
     
+    /// The view model.
     @State var viewModel = ViewModel()
     
     var body: some View {

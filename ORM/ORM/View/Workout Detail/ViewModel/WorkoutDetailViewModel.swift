@@ -21,6 +21,10 @@ extension WorkoutDetailView {
         var workouts: [Workout] = []
         /// The filtered workout data rows to plot a chart.
         var filteredData: [Workout] = []
+        /// The visible X axis domain length to display. Default value is 15.
+        var visibleDays = 15
+        /// Range used by the stepper control to change the data visualization in data chart.
+        var chartRange = 1...90
         /// Error messages caught during data processing.
         var errorMessage: String?
         

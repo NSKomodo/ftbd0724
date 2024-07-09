@@ -11,8 +11,8 @@ import Charts
 /// Represents the view that will render the one-rep max data of a specific exercise and plot its historical data on a chart.
 struct WorkoutDetailView: View {
     
+    /// The view model.
     @State var viewModel: ViewModel
-    @State private var scrollPosition = 0
     
     var body: some View {
         if let errorMessage = viewModel.errorMessage {
@@ -22,12 +22,11 @@ struct WorkoutDetailView: View {
                 OneRepMaxListItem(exercise: viewModel.exercise,
                                   oneRepMax: viewModel.oneRepMax)
                 .padding()
+                
                 Chart {
                     ForEach(viewModel.filteredData, id: \.self) { record in
-                        LineMark(
-                            x: .value("Date", record.date),
-                            y: .value("1RM", record.oneRepMax)
-                        )
+                        LineMark(x: .value("Date", record.date),
+                                 y: .value("1RM", record.oneRepMax))
                         .interpolationMethod(.catmullRom)
                         .symbol {
                             Circle()
@@ -40,6 +39,12 @@ struct WorkoutDetailView: View {
                 .frame(height: 200)
                 .padding()
                 .chartScrollableAxes(.horizontal)
+                .chartXVisibleDomain(length: 84000 * viewModel.visibleDays)
+                
+                Stepper("Visible days: \(viewModel.visibleDays)",
+                        value: $viewModel.visibleDays,
+                        in: viewModel.chartRange)
+                .padding()
                 Spacer()
             }
             .navigationTitle("Historical 1RM Data")
