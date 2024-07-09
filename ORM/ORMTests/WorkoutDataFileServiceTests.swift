@@ -30,29 +30,13 @@ final class WorkoutDataFileServiceTests: XCTestCase {
         }
         
         do {
-            // Read the file data asynchoronously
-            let data = try await withCheckedThrowingContinuation { continuation in
-                DispatchQueue.global().async {
-                    do {
-                        let data = try Data(contentsOf: url)
-                        continuation.resume(returning: data)
-                    } catch {
-                        continuation.resume(throwing: WorkoutDataError.invalidDataFile)
-                    }
-                }
-            }
+            // Read the file data asynchronously and return its contents as string
+            let data = try Data(contentsOf: url)
+            let sampleContent = String(data: data, encoding: .utf8)
             
-            let sampleFileContents = String(data: data, encoding: .utf8)
-            let testFileContents = try await service.loadWorkoutDataFile(atPath: url)
-            XCTAssertEqual(testFileContents, sampleFileContents)
-            
-            // Test invalid file
-            guard Bundle.main.url(forResource: "testFileName",
-                                  withExtension: "testExtension") != nil else {
-                
-                XCTAssert(true)
-                return
-            }
+            // Make service call
+            let testContent = try await service.loadWorkoutDataFile(atPath: url)
+            XCTAssertEqual(testContent, sampleContent)
         } catch {
             XCTFail(error.localizedDescription)
         }

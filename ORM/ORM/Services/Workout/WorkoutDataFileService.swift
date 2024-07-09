@@ -65,18 +65,8 @@ class WorkoutDataFileService: WorkoutDataService {
             throw WorkoutDataError.dataFileNotFound
         }
         
-        // Read the file data asynchoronously
-        let data = try await withCheckedThrowingContinuation { continuation in
-            DispatchQueue.global().async {
-                do {
-                    let data = try Data(contentsOf: url)
-                    continuation.resume(returning: data)
-                } catch {
-                    continuation.resume(throwing: WorkoutDataError.invalidDataFile)
-                }
-            }
-        }
-        
+        // Read the file data asynchronously and return its contents as string
+        let data = try Data(contentsOf: url)
         return String(data: data, encoding: .utf8)
     }
     
